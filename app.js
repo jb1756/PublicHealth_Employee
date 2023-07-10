@@ -3,7 +3,7 @@ const connection = require("./config/connection");
 
 
 // Function to start your application logic
-function Mainmenu() {
+function mainMenu() {
     inquirer
       .prompt([
         {
@@ -52,5 +52,23 @@ function Mainmenu() {
       });
   }
 
-// Call the function to start your application
-startApp();
+mainMenu();
+
+function viewDepartments() {
+    connection.query('SELECT * FROM departments', (err, res) => {
+      if (err) throw err;
+      console.table('Departments', res);
+      mainMenu();
+    });
+  }
+
+  function viewRoles() {
+    connection.query(
+      'SELECT roles.id, roles.title, departments.name AS department, roles.salary FROM roles LEFT JOIN departments ON roles.department_id = departments.id',
+      (err, res) => {
+        if (err) throw err;
+        console.table('Roles', res);
+        mainMenu();
+      }
+    );
+  }
