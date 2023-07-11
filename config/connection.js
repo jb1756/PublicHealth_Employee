@@ -5,8 +5,8 @@ const connection = mysql.createConnection({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: 'your_password',
-  database: 'your_database',
+  password: 'Janelle23!',
+  database: 'publichealthdb',
 },
  console.log(`Connected to the PH_employee database`)
 );
@@ -15,5 +15,6 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log('Connected to the database.');
-  // Call the function to start your application logic here
 });
+
+module.exports = connection;

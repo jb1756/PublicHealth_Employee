@@ -111,7 +111,7 @@ function addDepartment() {
       .then((answer) => {
         connection.query('INSERT INTO departments SET ?', { name: answer.department }, (err) => {
           if (err) throw err;
-          console.log('Department added successfully!');
+          console.log('Public Health Department added successfully!');
           menu();
         });
       });
@@ -147,10 +147,114 @@ function addRole() {
             { title: answer.title, salary: answer.salary, department_id: department.id },
             (err) => {
               if (err) throw err;
-              console.log('Role added successfully!');
+              console.log('Public Health Role added successfully!');
               menu();
             }
           );
         });
     });
 }
+
+function addEmployee() {
+    connection.query('SELECT * FROM roles', (err, roles) => {
+      if (err) throw err;
+  
+      connection.query('SELECT * FROM employees', (err, employees) => {
+        if (err) throw err;
+  
+        inquirer
+          .prompt([
+            {
+              type: 'input',
+              name: 'first_name',
+              message: "Enter the employee's first name:",
+            },
+            {
+              type: 'input',
+              name: 'last_name',
+              message: "Enter the employee's last name:",
+            },
+            {
+              type: 'list',
+              name: 'role',
+              message: "Select the employee's role:",
+              choices: roles.map((role) => role.title),
+            },
+            {
+              type: 'list',
+              name: 'manager',
+              message: "Select the employee's manager:",
+              choices: employees.map((employee) => `${employee.first_name} ${employee.last_name}`),
+            },
+          ])
+          .then((answer) => {
+            const role = roles.find((r) => r.title === answer.role);
+            const manager = employees.find(
+              (employee) => `${employee.first_name} ${employee.last_name}` === answer.manager
+            );
+  
+            connection.query(
+              'INSERT INTO employees SET ?',
+              { first_name: answer.first_name, last_name: answer.last_name, role_id: role.id, manager_id: manager.id },
+              (err) => {
+                if (err) throw err;
+                console.log('PH Employee added successfully!');
+                menu();
+              }
+            );
+          });
+      });
+    });
+}
+
+function updateEmployeeRole() {
+    connection.query('SELECT * FROM employees', (err, employees) => {
+      if (err) throw err;
+  
+      connection.query('SELECT * FROM roles', (err, roles) => {
+        if (err) throw err;
+  
+        inquirer
+          .prompt([
+            {
+              type: 'list',
+              name: 'employee',
+              message: 'Select the employee to update:',
+              choices: employees.map((employee) => `${employee.first_name} ${employee.last_name}`),
+            },
+            {
+              type: 'list',
+              name: 'role',
+              message: 'Select the new role:',
+              choices: roles.map((role) => role.title),
+            },
+          ])
+          .then((answer) => {
+            const employee = employees.find(
+              (employee) => `${employee.first_name} ${employee.last_name}` === answer.employee
+            );
+            const role = roles.find((role) => role.title === answer.role);
+  
+            connection.query(
+              'UPDATE employees SET ? WHERE ?',
+              [{ role_id: role.id }, { id: employee.id }],
+              (err) => {
+                if (err) throw err;
+                console.log('Public Health Employee role updated successfully!');
+                menu();
+              }
+            );
+          });
+      });
+    });
+}
+  
+  // Connect to the database
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to the database: ' + err.stack);
+      return;
+    }
+    console.log('Connected to the database as id ' + connection.threadId);
+    menu(); // Start the menu
+  });
