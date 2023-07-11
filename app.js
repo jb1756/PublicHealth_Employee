@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const connection = require("./config/connection");
+const { query } = require('express');
 
 
 // Function to start your application logic
@@ -55,7 +56,8 @@ function mainMenu() {
 mainMenu();
 
 function viewDepartments() {
-    connection.query('SELECT * FROM departments', (err, res) => {
+  const query = `SELECT * FROM departments`;
+    connection.query(query, (err, res) => {
         if (err) throw err;
         console.table('Departments', res);
         mainMenu();
@@ -63,13 +65,15 @@ function viewDepartments() {
   }
 
 function viewRoles() {
-    connection.query(
-        'SELECT roles.id, roles.title, departments.name AS department, roles.salary FROM roles LEFT JOIN departments ON roles.department_id = departments.id',
-        (err, res) => {
+    const query = 
+    `SELECT roles.id, roles.title, department.name AS department, roles.salary
+    FROM roles
+    LEFT JOIN departments ON roles.department_id = department.id`;
+    connection.query(query, (err, res) => {
         if (err) throw err;
         console.table('Roles', res);
         mainMenu();
-        }
+      }
     );
 }
 
