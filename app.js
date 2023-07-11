@@ -95,7 +95,7 @@ function viewEmployees() {
     connection.query(query, (err, res) => {
       if (err) throw err;
       console.table('Employees', res);
-      menu();
+      mainMenu();
     });
 }
 
@@ -112,7 +112,7 @@ function addDepartment() {
         connection.query('INSERT INTO departments SET ?', { name: answer.department }, (err) => {
           if (err) throw err;
           console.log('Public Health Department added successfully!');
-          menu();
+          mainMenu();
         });
       });
 }
@@ -148,7 +148,7 @@ function addRole() {
             (err) => {
               if (err) throw err;
               console.log('Public Health Role added successfully!');
-              menu();
+              mainMenu();
             }
           );
         });
@@ -199,7 +199,7 @@ function addEmployee() {
               (err) => {
                 if (err) throw err;
                 console.log('PH Employee added successfully!');
-                menu();
+                mainMenu();
               }
             );
           });
@@ -241,7 +241,7 @@ function updateEmployeeRole() {
               (err) => {
                 if (err) throw err;
                 console.log('Public Health Employee role updated successfully!');
-                menu();
+                mainMenu();
               }
             );
           });
@@ -256,5 +256,5 @@ function updateEmployeeRole() {
       return;
     }
     console.log('Connected to the database as id ' + connection.threadId);
-    menu(); // Start the menu
+    mainMenu(); // Start the menu
   });
