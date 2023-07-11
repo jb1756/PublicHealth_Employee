@@ -59,19 +59,19 @@ function viewDepartments() {
   const query = `SELECT * FROM departments`;
     connection.query(query, (err, res) => {
         if (err) throw err;
-        console.table('Departments', res);
+        console.table('departments', res);
         mainMenu();
     });
   }
 
 function viewRoles() {
     const query = 
-    `SELECT roles.id, roles.title, department.name AS department, roles.salary
+    `SELECT roles.id, roles.title, departments.name AS department, roles.salary
     FROM roles
-    LEFT JOIN departments ON roles.department_id = department.id`;
+    LEFT JOIN departments ON roles.department_id = departments.id`;
     connection.query(query, (err, res) => {
         if (err) throw err;
-        console.table('Roles', res);
+        console.table('roles', res);
         mainMenu();
       }
     );
@@ -98,7 +98,7 @@ function viewEmployees() {
   
     connection.query(query, (err, res) => {
       if (err) throw err;
-      console.table('Employees', res);
+      console.table('employees', res);
       mainMenu();
     });
 }
