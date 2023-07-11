@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS publichealth_db;
 CREATE DATABASE publichealth_db;
 
+USE publichealth_db
+
 -- Create departments table
 CREATE TABLE departments (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
