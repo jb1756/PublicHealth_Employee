@@ -1,8 +1,8 @@
 {
-    "name": "12.employee-tracker",
+    "name": "PublicHealth_Employee",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
       "test": "node app.js"
     },
@@ -12,9 +12,9 @@
     },
     "homepage": "https://github.com/jb1756/PublicHealth_Employee/blob/main/README.md",
     "dependencies": {
-      "dotenv": "^16.3.1",
+      "console.table": "0.10.0",
       "fs": "^0.0.1-security",
-      "inquirer": "8.2.4",
+      "inquirer": "8.2.5",
       "mysql2": "^3.4.0"
     }
   }
