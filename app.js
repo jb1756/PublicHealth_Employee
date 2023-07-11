@@ -59,7 +59,8 @@ function viewDepartments() {
   const query = `SELECT * FROM departments`;
     connection.query(query, (err, res) => {
         if (err) throw err;
-        console.table('departments', res);
+        console.log('departments:');
+        console.table(res)
         mainMenu();
     });
   }
@@ -71,7 +72,8 @@ function viewRoles() {
     LEFT JOIN departments ON roles.department_id = departments.id`;
     connection.query(query, (err, res) => {
         if (err) throw err;
-        console.table('roles', res);
+        console.log('roles:');
+        console.table(res)
         mainMenu();
       }
     );
@@ -98,7 +100,8 @@ function viewEmployees() {
   
     connection.query(query, (err, res) => {
       if (err) throw err;
-      console.table('employees', res);
+      console.log('employees:');
+      console.table(res)
       mainMenu();
     });
 }
