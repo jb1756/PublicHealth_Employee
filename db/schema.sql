@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS publichealth_db;
+DROP DATABASE IF EXISTS publichealth_db;
+CREATE DATABASE publichealth_db;
 
 -- Create departments table
 CREATE TABLE departments (
