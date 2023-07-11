@@ -4,17 +4,17 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-      "test": "node app.js"
+        "test": "node app.js"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/jb1756/PublicHealth_Employee"
+        "type": "git",
+        "url": "git+https://github.com/jb1756/PublicHealth_Employee"
     },
     "homepage": "https://github.com/jb1756/PublicHealth_Employee/blob/main/README.md",
     "dependencies": {
-      "console.table": "0.10.0",
-      "fs": "^0.0.1-security",
-      "inquirer": "8.2.5",
-      "mysql2": "^3.4.0"
+        "console.table": "^0.10.0",
+        "fs": "^0.0.1-security",
+        "inquirer": "^8.2.5",
+        "mysql2": "^3.5.1"
     }
-  }
+}

@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   port: 3306,
   user: 'root',
   password: 'Janelle23!',
-  database: 'publichealthdb',
+  database: 'publichealth_db',
 },
  console.log(`Connected to the PH_employee database`)
 );

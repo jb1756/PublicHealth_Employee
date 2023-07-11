@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS publichealth_db;
+
 -- Create departments table
 CREATE TABLE departments (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
