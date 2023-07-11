@@ -1,3 +1,4 @@
+USE publichealth_db
 -- Insert sample departments
 INSERT INTO departments (name) VALUES
   ('Infectious Disease'),
@@ -16,7 +17,7 @@ INSERT INTO roles (title, salary, department_id) VALUES
   ('Public Health Communication', 70000, 3),
   ('Biostatician', 110000, 3),
   ('Biostatician II', 120000, 3),
-  ('Health Educator I', 51000, 3)
+  ('Health Educator I', 51000, 3),
   ('Software Engineer I', 93000, 4),
   ('Junior Engineer', 60000, 4);
 
