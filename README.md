@@ -25,8 +25,8 @@ Update employee role
 View department, roles and employees.
 
 ## Screenshot
-
+[!Screenshot](./img/commandline_publichealth_emp.png)
 ## Demo Video
-
+https://watch.screencastify.com/v/vIP7BKo4hmoPhrDgcUzc
 ## License
 MIT License
