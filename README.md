@@ -8,7 +8,8 @@ A command-line app for Public Health leadership to manage their employee data
 -[Installation](#installation)
 -[Pupose](#Purpose)
 -[Screenshot](#screenshot)
--[Features](#features)
+-[Demo Video](#DemoVideo)
+-[Dependencies](#Dependencies)
 -[License](#license)
 
 ## Description
@@ -28,5 +29,11 @@ View department, roles and employees.
 [!Screenshot](./img/commandline_publichealth_emp.png)
 ## Demo Video
 https://watch.screencastify.com/v/vIP7BKo4hmoPhrDgcUzc
+
+##Dependencies
+-Uses 
+-Inquirer
+-MySQL
+-MySQL2
 ## License
 MIT License
